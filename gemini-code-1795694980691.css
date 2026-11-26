@@ -1,0 +1,340 @@
+:root {
+    --primary: #1e293b;      /* Biru gelap formal khas hukum */
+    --accent: #b45309;       /* Emas/perunggu klasik */
+    --accent-light: #fef3c7;
+    --bg: #f8fafc;
+    --card-bg: #ffffff;
+    --text: #334155;
+    --border: #e2e8f0;
+    --success: #15803d;
+    --danger: #b91c1c;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+.app-header {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: white;
+    padding: 36px 0;
+    border-bottom: 4px solid var(--accent);
+    margin-bottom: 24px;
+}
+
+.badge {
+    display: inline-block;
+    background-color: var(--accent);
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+}
+
+.app-header h1 {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+}
+
+.app-header p {
+    color: #cbd5e1;
+    font-size: 0.95rem;
+}
+
+/* Stepper Navigation */
+.stepper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.step-btn {
+    flex: 1;
+    min-width: 110px;
+    padding: 10px 8px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text);
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+}
+
+.step-btn:hover {
+    border-color: var(--accent);
+}
+
+.step-btn.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+.step-btn.completed {
+    border-bottom: 3px solid var(--success);
+}
+
+/* Progress Bar */
+.progress-container {
+    width: 100%;
+    height: 6px;
+    background-color: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 24px;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: var(--accent);
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+/* Card & Content */
+.card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 32px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border);
+    margin-bottom: 24px;
+}
+
+.actor-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+}
+
+.actor-icon {
+    font-size: 2.5rem;
+    background: var(--accent-light);
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+}
+
+.actor-title h2 {
+    color: var(--primary);
+    font-size: 1.5rem;
+}
+
+.actor-subtitle {
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 20px 0;
+}
+
+.info-box {
+    background: var(--bg);
+    padding: 16px;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary);
+}
+
+.info-box h4 {
+    color: var(--primary);
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.info-box ul {
+    padding-left: 18px;
+    font-size: 0.9rem;
+}
+
+.info-box li {
+    margin-bottom: 6px;
+}
+
+.courtroom-map {
+    background: #f1f5f9;
+    padding: 16px;
+    border-radius: 8px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.courtroom-map h4 {
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+    color: var(--primary);
+}
+
+.map-diagram {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.seat {
+    padding: 8px;
+    background: white;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    color: #64748b;
+}
+
+.seat.highlight {
+    background: var(--accent);
+    color: white;
+    font-weight: bold;
+    border-color: var(--accent);
+}
+
+.seat.judge-seat {
+    grid-column: span 3;
+}
+
+.seat.witness-seat {
+    grid-column: 2;
+}
+
+/* Controls */
+.nav-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: opacity 0.2s;
+}
+
+.btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: white;
+}
+
+.btn-secondary {
+    background-color: #e2e8f0;
+    color: var(--primary);
+}
+
+.step-text {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #64748b;
+}
+
+/* Kuis */
+.quiz-item {
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+}
+
+.quiz-question {
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--primary);
+}
+
+.quiz-options label {
+    display: block;
+    padding: 10px 14px;
+    margin-bottom: 8px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.92rem;
+}
+
+.quiz-options label:hover {
+    background: #e2e8f0;
+}
+
+.quiz-feedback {
+    margin-top: 8px;
+    font-size: 0.88rem;
+    padding: 8px 12px;
+    border-radius: 6px;
+    display: none;
+}
+
+.quiz-feedback.correct {
+    background: #dcfce7;
+    color: var(--success);
+    display: block;
+}
+
+.quiz-feedback.wrong {
+    background: #fee2e2;
+    color: var(--danger);
+    display: block;
+}
+
+.app-footer {
+    margin-top: auto;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.85rem;
+    color: #64748b;
+    border-top: 1px solid var(--border);
+}
+
+@media (max-width: 640px) {
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+    .card {
+        padding: 20px;
+    }
+}
